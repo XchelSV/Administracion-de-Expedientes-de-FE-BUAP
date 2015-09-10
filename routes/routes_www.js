@@ -4,7 +4,7 @@ module.exports = (function (app){
 
 	.get(function (request , response){
 
-		response.render('login')
+		response.render('loginOficial')
 
 	})
 

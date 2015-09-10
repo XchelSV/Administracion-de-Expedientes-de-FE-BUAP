@@ -29,13 +29,15 @@ app.use(session({
         resave:       false
       }));
 
-
 app.use(express.static(__dirname+ '/public'));
 
 
-require('./routes/routes_www')(app);
-require('./routes/routes_API')(app);
+MongoClient.connect ("mongodb://localhost/EstomaDB",function (err,EstomaDB){
+if (err) throw err;
 
+	require('./routes/routes_www')(app,EstomaDB);
+	require('./routes/routes_API')(app,EstomaDB);
+});
 
 http.listen(4020,function () {
    

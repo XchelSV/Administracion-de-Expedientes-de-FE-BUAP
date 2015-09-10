@@ -1,0 +1,61 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Historia Clínica Estomatológica 
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    
+    link(href='css/bootstrap.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+    
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='/images/logoBUAPdos.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='/images/logoBUAPdos.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/images/logoBUAPtres.png')
+    link(rel='apple-touch-icon-precomposed', href='/images/logoBUAP.png')
+    link(rel='shortcut icon', href='/images/logoBUAP.png')
+    script(type='text/javascript', src='js/jquery-1.11.1.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='')
+    .footer(align='right', style='position: relative;\
+    height: auto;\
+    bottom: 0;\
+    width: 100%;\
+    ')
+      img#footer.img-responsive(src='/images/header_estoma.png', alt='Responsive image')
+  body
+    form.form-horizontal(action='/login', method='post')
+      fieldset
+        // Divicion Incio
+        .container
+          .row.clearfix
+            .col-md-4.column
+            .col-md-4.column
+              .panel.panel-info
+                .panel-heading
+                  h3.panel-title
+                    div(align='center') Login
+                .panel-body
+                  .form-group
+                    label.control-label.col-sm-5 Matrícula o  Número de Trabajador
+                    input#id_trabajador.form-control.input-md(name='matricula', placeholder='Ejemplo: 100123456 o 200900457', required, type='text', pattern='[a-zA-Z0-9]{9}', title='nueve digitos.', autofocus='')
+                  .form-group
+                    label.control-label.col-sm-5 Contraseña
+                    input#password.form-control.input-md(type='password', required, name='pass', placeholder='Contraseña')
+          .form-group
+            .col-sm-offset-2.col-sm-10
+              .col-md-7.column
+              button.btn.btn-default(type='submit') Ingresar
+
+        // Divicion Final
+    div(align='center', style="position: fixed; bottom: 0; right: 0; padding: 0px; white-space: nowrap;/*  \
+    normal;*/ height: 110px; width: 100%; overflow: hidden; z-index: 1030; background: #1E5372; \
+    color: white;  max-width: 100%;   background-image: -webkit-linear-gradient(bottom, #1E5372 0%, \
+    #1E5372 100%); background-image: linear-gradient(to top, #1E5372 0%, #1E5372 100%); background-repeat: \
+    repeat-x; border-radius: 1px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1E5372', \
+    endColorstr='#1E5372', GradientType=0); filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); \
+    -webkit-box-shadow: inset 0 1px 0 #1E5372, 0 1px 5px #1E5372; box-shadow: inset 0 1px 0 #1E5372, 0 1px 5px #1E5372; ")
+      img.img-responsive(src='/images/footer_estoma.png', alt='Responsive image')
+    // <fin footer
