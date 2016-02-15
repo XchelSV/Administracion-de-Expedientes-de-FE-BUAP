@@ -1,0 +1,263 @@
+html
+  head
+
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', type='text/css', href='css/bootstrap.min.css')
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
+    link(href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css')
+    title Estomatologia BUAP
+    script(type='text/javascript', src='js/jquery-1.11.1.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/tab.js')
+    script(type='text/javascript', src='js/showModal.js')
+    //script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-route.js')
+    //script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-cookies.js')
+    style.
+      body {
+        font-size: 140%;
+        font-family: "Raleway", sans-serif; 
+      }
+  body
+    header
+      div
+        // Nav tabs
+        ul.nav.nav-tabs(role='tablist')
+          li.active(role='presentation')
+            a(href='#home', aria-controls='home', role='tab', data-toggle='tab') Inicio
+          li(role='presentation')#showModal
+            a(href='#registrar', aria-controls='profile', role='tab', data-toggle='tab') Registar Historia Clinica
+          li(role='presentation')
+            a(href='#search', aria-controls='messages', role='tab', data-toggle='tab') Busqueda de Historia Clinica
+          li(role='presentation')
+            a(href='#queue', aria-controls='settings', role='tab', data-toggle='tab') Pacientes en Espera
+        // Tab panes
+        .tab-content
+          #home.tab-pane.fade.in.active(role='tabpanel') 
+            .container-fluid
+              .jumbotron(style='margin-top:1%')
+          #registrar.tab-pane.fade(role='tabpanel')
+            .container-fluid
+              .jumbotron(style='margin-top:1%')
+                #accordion.panel-group(role='tablist', aria-multiselectable='true')
+                  .panel.panel-default
+                    #headingOne.panel-heading(role='tab')
+                      h4.panel-title
+                        a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                          | Ficha de Identificación
+                    #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+                      .panel-body
+                        form
+                          .form-group
+                            label Nombre Completo
+                            .row
+                              .col-md-4.col-xs-4
+                                input.form-control(name='nombre',placeholder='Nombre',type='text')
+                              .col-md-4.col-xs-4
+                                input.form-control(name='apellidoP',placeholder='Apellido Paterno',type='text')
+                              .col-md-4.col-xs-4
+                                input.form-control(name='apellidoM',placeholder='Apelido Materno',type='text')
+                          .form-group
+                            .row
+                              .col-md-6.col-xs-6
+                                label Fecha de Nacimiento
+                              .col-md-6.col-xs-6
+                                label Género
+                            .row
+                              .col-md-6.col-xs-6
+                                input.form-control(name='fechaNac',type='date')
+                              .col-md-6.col-xs-6
+                                select.form-control(name='genero')
+                                  option(value='')
+                                  option(value='0') Masculino
+                                  option(value='1') Femenino
+                          .form-group
+                            .row
+                              .col-md-6.col-xs-6
+                                  label Lugar de Nacimiento
+                              .col-md-6.col-xs-6
+                                  label Ocupación
+                            .row
+                              .col-md-6.col-xs-6
+                                input.form-control(name='lugarNac',placeholder='Lugar de Nacimiento',type='text')
+                              .col-md-6.col-xs-6
+                                input.form-control(name='ocupacion',placeholder='Ocupación',type='text')
+                          .form-group
+                            .row
+                              .col-md-6.col-xs-6
+                                label Escolaridad
+                              .col-md-6.col-xs-6
+                                label Estado Civil
+                            .row
+                              .col-md-6.col-xs-6
+                                select.form-control(name='escolaridad')
+                                  option(value='')
+                                  option(value='0') Nula
+                                  option(value='1') Primaria
+                                  option(value='2') Secundaria
+                                  option(value='3') Medio Superior
+                                  option(value='4') Superior
+                              .col-md-6.col-xs-6
+                                select.form-control(name='edoCivil')
+                                  option(value='')
+                                  option(value='0') Soltero
+                                  option(value='1') Casado
+                                  option(value='2') Divorciado
+                                  option(value='3') Viudo
+                          .form-group
+                            label Domicilio
+                            .row
+                              .col-md-4.col-xs-4
+                                input.form-control(name='calle',placeholder='Calle',type='text')
+                              .col-md-4.col-xs-4
+                                input.form-control(name='exterior',placeholder='Número Exterior',type='text')
+                              .col-md-4.col-xs-4
+                                input.form-control(name='interior',placeholder='Número Interior',type='text')
+                          .form-group  
+                            .row
+                              .col-md-6.col-xs-6
+                                input.form-control(name='colonia',placeholder='Colonia',type='text')
+                              .col-md-6.col-xs-6
+                                input.form-control(name='cp',placeholder='Código Postal',type='text')
+                          .form-group  
+                            .row
+                              .col-md-6.col-xs-6
+                                input.form-control(name='estado',placeholder='Estado',type='text')
+                              .col-md-6.col-xs-6
+                                input.form-control(name='municipio',placeholder='Municipio',type='text')
+                          .form-group
+                            label Teléfonos
+                            .row
+                              .col-md-4.col-xs-4
+                                input.form-control(name='telFijo',placeholder='Fijo',type='text')
+                              .col-md-4.col-xs-4
+                                input.form-control(name='telMovil',placeholder='Móvil',type='text')
+                              .col-md-4.col-xs-4
+                                input.form-control(name='telOficina',placeholder='Oficina',type='text')
+                          .form-group
+                            .row
+                              .col-md-6.col-xs-6
+                                label CURP
+                              .col-md-6.col-xs-6
+                                label E-mail
+                            .row
+                              .col-md-6.col-xs-6
+                                input.form-control(name='curp',placeholder='CURP',type='text')
+                              .col-md-6.col-xs-6
+                                input.form-control(name='email',placeholder='Correo Electrónico',type='mail')
+                          .form-group
+                            .row
+                              .col-md-6.col-xs-6
+                                label Ingresos
+                              .col-md-6.col-xs-6
+                                label Tipo de Sangre
+                            .row
+                              .col-md-6.col-xs-6
+                                .input-group
+                                  span#basic-addon1.input-group-addon $
+                                  input.form-control(type='text', placeholder='Ingresos',name='ingresos', aria-describedby='basic-addon1')
+                              .col-md-6.col-xs-6
+                                select.form-control(name='sangre')
+                                  option(value='')
+                                  option(value='0') A+
+                                  option(value='1') A-
+                                  option(value='2') B+
+                                  option(value='3') B-
+                                  option(value='4') AB+
+                                  option(value='5') AB-
+                                  option(value='6') O+
+                                  option(value='7') O-
+                          .form-group
+                            .row
+                              .col-md-1.col-xs-3
+                                label Vacunación
+                              .col-md-1.col-xs-1
+                                button.btn.btn-danger Agregar Vacuna 
+                                  span.glyphicon.glyphicon-plus-sign
+                              
+                            .row
+                              .col-md-4.col-xs-4(style='margin-top:1%')
+                                input.form-control(type='text',name='vacuna',placeholder='Nombre de Vacuna')
+                              
+
+
+
+
+                  .panel.panel-default
+                    #headingTwo.panel-heading(role='tab')
+                      h4.panel-title
+                        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+                          | Antecedentes Heredofamiliares
+                    #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+                      .panel-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  .panel.panel-default
+                    #headingThree.panel-heading(role='tab')
+                      h4.panel-title
+                        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+                          | Antecedentes Personales No Patológicos
+                    #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
+                      .panel-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  .panel.panel-default
+                    #headingFour.panel-heading(role='tab')
+                      h4.panel-title
+                        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseFour', aria-expanded='false', aria-controls='collapseFour')
+                          | Antecedentes Personales Patológicos
+                    #collapseFour.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingFour')
+                      .panel-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  .panel.panel-default
+                    #headingFive.panel-heading(role='tab')
+                      h4.panel-title
+                        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseFive', aria-expanded='false', aria-controls='collapseFive')
+                          | Exploracion
+                    #collapseFive.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingFive')
+                      .panel-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  .panel.panel-default
+                    #headingSix.panel-heading(role='tab')
+                      h4.panel-title
+                        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseSix', aria-expanded='false', aria-controls='collapseSix')
+                          | Estudios de Gabinete y Laboratorio
+                    #collapseSix.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingSix')
+                      .panel-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  .panel.panel-default
+                    #headingSeven.panel-heading(role='tab')
+                      h4.panel-title
+                        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseSeven', aria-expanded='false', aria-controls='collapseSeven')
+                          | Diagnostico Definitivo
+                    #collapseSeven.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingSeven')
+                      .panel-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
+          #search.tab-pane.fade(role='tabpanel')
+            .container-fluid
+              .jumbotron(style='margin-top:1%')
+          #queue.tab-pane.fade(role='tabpanel')
+            .container-fluid
+              .jumbotron(style='margin-top:1%')
+
+    #alertModal.modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#myModalLabel.modal-title.text-danger(align='center') Importante
+          .modal-body
+            | Recuerda que si tu paciente ya fue previamente Registrado debes Buscarlo en el apartado de "Busqueda de Historia Clínica", y sobre esa Historia realizar una nueva exploración y un nuevo diagnostico.
+
+
+     // Divicion Final
+    div(align='center', style="position:absolute bottom: 0; right: 0; padding: 0px; white-space: nowrap;/*  \
+    normal;*/ height: auto; width: 100%; overflow: hidden; z-index: 1030; background: #1E5372; \
+    color: white;  max-width: 100%;   background-image: -webkit-linear-gradient(bottom, #1E5372 0%, \
+    #1E5372 100%); background-image: linear-gradient(to top, #1E5372 0%, #1E5372 100%); background-repeat: \
+    repeat-x; border-radius: 1px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1E5372', \
+    endColorstr='#1E5372', GradientType=0); filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); \
+    -webkit-box-shadow: inset 0 1px 0 #1E5372, 0 1px 5px #1E5372; box-shadow: inset 0 1px 0 #1E5372, 0 1px 5px #1E5372; ")
+      img.img-responsive(src='/images/footer_estoma.png', alt='Responsive image',width='80%', height='80%')
+    // <fin footer
