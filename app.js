@@ -19,6 +19,9 @@ app.set('view engine', 'jade');
 //DB conf
 require('./db/mongoose.js')(mongoose);
 
+//routes
+require('./routes/routes_www.js')(app);
+require('./routes/routes_API.js')(app,mongoose);
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));

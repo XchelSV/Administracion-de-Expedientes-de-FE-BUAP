@@ -3,7 +3,8 @@ module.exports = (function (app,EstomaDB){
 	app.route('/login')
 
 	.post(function (request , response){
-
+//NECESARIO CAMBIARLO A MONGOOSE
+/*
 		EstomaDB.collection('users').find().toArray(function (err,docs){
 
 
@@ -21,8 +22,7 @@ module.exports = (function (app,EstomaDB){
 			});
 
 		})
-
+*/
 	})
-
 	
 });
