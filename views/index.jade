@@ -1,4 +1,4 @@
-html
+html(ng-app='Estoma')
   head
 
     meta(charset='utf-8')
@@ -8,18 +8,20 @@ html
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
     link(href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css')
     title Estomatologia BUAP
+    script(type='text/javascript', src='js/angular.min.js')
     script(type='text/javascript', src='js/jquery-1.11.1.min.js')
     script(type='text/javascript', src='js/bootstrap.min.js')
     script(type='text/javascript', src='js/tab.js')
     script(type='text/javascript', src='js/showModal.js')
-    //script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-route.js')
-    //script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-cookies.js')
+    script(type='text/javascript', src='js/angularModule.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-route.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-cookies.js')
     style.
       body {
         font-size: 140%;
         font-family: "Raleway", sans-serif; 
       }
-  body
+  body(ng-controller='indexController')
     header
       div
         // Nav tabs
@@ -170,16 +172,145 @@ html
                                   option(value='7') O-
                           .form-group
                             .row
-                              .col-md-1.col-xs-3
+                              .col-md-1.col-xs-2
                                 label Vacunación
-                              .col-md-1.col-xs-1
-                                button.btn.btn-danger Agregar Vacuna 
+                              .col-md-2.col-xs-4
+                                button.btn.btn-danger(ng-click='pushVacuna()') Agregar Vacuna 
                                   span.glyphicon.glyphicon-plus-sign
+                              .col-md-2.col-xs-3
+                                button.btn.btn-danger(ng-click='popVacuna()') Quitar Vacuna 
+                                  span.glyphicon.glyphicon-minus
                               
                             .row
-                              .col-md-4.col-xs-4(style='margin-top:1%')
-                                input.form-control(type='text',name='vacuna',placeholder='Nombre de Vacuna')
-                              
+                              .col-md-4.col-xs-4(style='margin-top:1%',ng-repeat='arr in array')
+                                input.form-control(type='text',name='vacuna{{arr}}',placeholder='Nombre de Vacuna')
+
+
+                          .form-group
+                            .row
+                              .col-md-offset-6.col-offset-xs-1.col-md-6.col-xs-10
+                                i Agregar Responsable (En caso del paciente ser menor de Edad): 
+                                input(type='checkbox', ng-model='responsable',name= 'responsableCheck') 
+                          div(ng-show='responsable')
+                            .form-group
+                              label Nombre Completo (Datos del Responsable)
+                              .row
+                                .col-md-4.col-xs-4
+                                  input.form-control(name='nombre',placeholder='Nombre',type='text')
+                                .col-md-4.col-xs-4
+                                  input.form-control(name='apellidoP',placeholder='Apellido Paterno',type='text')
+                                .col-md-4.col-xs-4
+                                  input.form-control(name='apellidoM',placeholder='Apelido Materno',type='text')
+                            .form-group
+                              .row
+                                .col-md-6.col-xs-6
+                                  label Fecha de Nacimiento
+                                .col-md-6.col-xs-6
+                                  label Género
+                              .row
+                                .col-md-6.col-xs-6
+                                  input.form-control(name='fechaNac',type='date')
+                                .col-md-6.col-xs-6
+                                  select.form-control(name='genero')
+                                    option(value='')
+                                    option(value='0') Masculino
+                                    option(value='1') Femenino
+                            .form-group
+                              .row
+                                .col-md-6.col-xs-6
+                                    label Lugar de Nacimiento
+                                .col-md-6.col-xs-6
+                                    label Ocupación
+                              .row
+                                .col-md-6.col-xs-6
+                                  input.form-control(name='lugarNac',placeholder='Lugar de Nacimiento',type='text')
+                                .col-md-6.col-xs-6
+                                  input.form-control(name='ocupacion',placeholder='Ocupación',type='text')
+                            .form-group
+                              .row
+                                .col-md-6.col-xs-6
+                                  label Escolaridad
+                                .col-md-6.col-xs-6
+                                  label Estado Civil
+                              .row
+                                .col-md-6.col-xs-6
+                                  select.form-control(name='escolaridad')
+                                    option(value='')
+                                    option(value='0') Nula
+                                    option(value='1') Primaria
+                                    option(value='2') Secundaria
+                                    option(value='3') Medio Superior
+                                    option(value='4') Superior
+                                .col-md-6.col-xs-6
+                                  select.form-control(name='edoCivil')
+                                    option(value='')
+                                    option(value='0') Soltero
+                                    option(value='1') Casado
+                                    option(value='2') Divorciado
+                                    option(value='3') Viudo
+                            .form-group
+                              label Domicilio
+                              .row
+                                .col-md-4.col-xs-4
+                                  input.form-control(name='calle',placeholder='Calle',type='text')
+                                .col-md-4.col-xs-4
+                                  input.form-control(name='exterior',placeholder='Número Exterior',type='text')
+                                .col-md-4.col-xs-4
+                                  input.form-control(name='interior',placeholder='Número Interior',type='text')
+                            .form-group  
+                              .row
+                                .col-md-6.col-xs-6
+                                  input.form-control(name='colonia',placeholder='Colonia',type='text')
+                                .col-md-6.col-xs-6
+                                  input.form-control(name='cp',placeholder='Código Postal',type='text')
+                            .form-group  
+                              .row
+                                .col-md-6.col-xs-6
+                                  input.form-control(name='estado',placeholder='Estado',type='text')
+                                .col-md-6.col-xs-6
+                                  input.form-control(name='municipio',placeholder='Municipio',type='text')
+                            .form-group
+                              label Teléfonos
+                              .row
+                                .col-md-4.col-xs-4
+                                  input.form-control(name='telFijo',placeholder='Fijo',type='text')
+                                .col-md-4.col-xs-4
+                                  input.form-control(name='telMovil',placeholder='Móvil',type='text')
+                                .col-md-4.col-xs-4
+                                  input.form-control(name='telOficina',placeholder='Oficina',type='text')
+                            .form-group
+                              .row
+                                .col-md-6.col-xs-6
+                                  label CURP
+                                .col-md-6.col-xs-6
+                                  label E-mail
+                              .row
+                                .col-md-6.col-xs-6
+                                  input.form-control(name='curp',placeholder='CURP',type='text')
+                                .col-md-6.col-xs-6
+                                  input.form-control(name='email',placeholder='Correo Electrónico',type='mail')
+                            .form-group
+                            .row
+                              .col-md-6.col-xs-6
+                                label Ingresos
+                              .col-md-6.col-xs-6
+                                label Tipo de Sangre
+                            .row
+                              .col-md-6.col-xs-6
+                                .input-group
+                                  span#basic-addon1.input-group-addon $
+                                  input.form-control(type='text', placeholder='Ingresos',name='ingresos', aria-describedby='basic-addon1')
+                              .col-md-6.col-xs-6
+                                select.form-control(name='sangre')
+                                  option(value='')
+                                  option(value='0') A+
+                                  option(value='1') A-
+                                  option(value='2') B+
+                                  option(value='3') B-
+                                  option(value='4') AB+
+                                  option(value='5') AB-
+                                  option(value='6') O+
+                                  option(value='7') O-
 
 
 
