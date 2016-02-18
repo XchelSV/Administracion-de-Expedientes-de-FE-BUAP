@@ -1,28 +1,55 @@
 module.exports = (function (app,EstomaDB){
+var  Estudiante = require('../models/estudiante');
 
 	app.route('/login')
 
-	.post(function (request , response){
-//NECESARIO CAMBIARLO A MONGOOSE
-/*
-		EstomaDB.collection('users').find().toArray(function (err,docs){
+	.post(function (request,response){
 
+			/*var newEstudiante = new Estudiante({
+				nombre: 'Xchel Elí',
+			    apellidoP:'Sánchez',
+			    apellidoM: 'Vásquez',
+			    email: 'xchelsvz@gmail.com',
+			    password: '1234',
+			    matricula: '201322263',
+			    carrera: 'Ing. en Tecnologías de la Información'
+			})
 
-			var matricula = request.body.matricula;
-			var pass = request.body.pass;
+			newEstudiante.save(function (err){
+				if (err) throw err;
+			})*/
+			
+			Estudiante.findOne({matricula : request.body.matricula}, function (err , estudiante){
+				if (err) throw err;
+				console.log(estudiante);
 
-			console.log(matricula)
+				if(estudiante != undefined){
+					estudiante.comparePassword(request.body.password, function (err , pass){
+						if (err) throw err;
+						console.log(pass);
 
-			if (err) throw err;
+							if(pass){
 
-			var flag = false;
+									//response.clearCookie('temporalSession');	
+								request.session._id = estudiante._id;
+								response.redirect('/test');
+							}
+							else{
+								response.redirect('/')
+								
+							}
+					})
+				}else
+				{
+					response.redirect('/')
+					/*response.cookie('attempUser', true)
+					response.cookie('attempPass', false)
+					response.render('login')*/
+					
+				}
 
-			docs.forEach(function (doc){
-				if ((doc.matricula == matricula) && (doc.pass == pass)) { response.redirect('/index');}
-			});
+			})
 
-		})
-*/
 	})
 	
 });
