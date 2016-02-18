@@ -2,7 +2,7 @@ var connectToMongoose = function (mongoose) {
     
 		var connect = function () {
 			var options = { server: { socketOptions: { keepAlive: 1 } } }
-			mongoose.connect( 'mongodb://localhost/estomaDB', options)
+			mongoose.connect( 'mongodb://localhost/EstomaDB', options)
 		}
 		connect();
 		
