@@ -16,17 +16,12 @@ var http = require('http').Server(app);
 app.set('views', './views');
 app.set('view engine', 'jade');
 
-//DB conf
-require('./db/mongoose.js')(mongoose);
-
-//routes
-require('./routes/routes_www.js')(app);
-require('./routes/routes_API.js')(app,mongoose);
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(multipart());
 app.use(cookieParser());
 app.use(session({
 
@@ -37,8 +32,16 @@ app.use(session({
 
 app.use(express.static(__dirname+ '/public'));
 
-http.listen(process.env.PORT,function () {
+//DB conf
+require('./db/mongoose.js')(mongoose);
+
+//routes
+require('./routes/routes_www.js')(app);
+require('./routes/routes_API.js')(app,mongoose);
+
+
+http.listen(4020,function () {
    
-   console.log ('Escuchando por el puerto '+process.env.PORT);
+   console.log ('Escuchando por el puerto ');
 
 });
