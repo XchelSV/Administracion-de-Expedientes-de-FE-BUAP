@@ -54,12 +54,12 @@ html(ng-app='Estoma')
                           .form-group
                             label Nombre Completo
                             .row
-                              .col-md-4.col-xs-4
-                                input.form-control(name='nombre',placeholder='Nombre',type='text')
-                              .col-md-4.col-xs-4
-                                input.form-control(name='apellidoP',placeholder='Apellido Paterno',type='text')
-                              .col-md-4.col-xs-4
-                                input.form-control(name='apellidoM',placeholder='Apelido Materno',type='text')
+                              .col-md-4.col-xs-4#name
+                                input.form-control(name='nombre',placeholder='Nombre',type='text',ng-change='validateInput(input.name,"name")',ng-model='input.name')
+                              .col-md-4.col-xs-4#apellidoP
+                                input.form-control(name='apellidoP',placeholder='Apellido Paterno',type='text',ng-change='validateInput(input.apellidoP,"apellidoP")',ng-model='input.apellidoP')
+                              .col-md-4.col-xs-4#apellidoM
+                                input.form-control(name='apellidoM',placeholder='Apelido Materno',type='text',ng-change='validateInput(input.apellidoM,"apellidoM")',ng-model='input.apellidoM')
                           .form-group
                             .row
                               .col-md-6.col-xs-6
@@ -67,10 +67,10 @@ html(ng-app='Estoma')
                               .col-md-6.col-xs-6
                                 label Género
                             .row
-                              .col-md-6.col-xs-6
-                                input.form-control(name='fechaNac',type='date')
-                              .col-md-6.col-xs-6
-                                select.form-control(name='genero')
+                              .col-md-6.col-xs-6#fechaNac
+                                input.form-control(name='fechaNac',type='date',ng-change='validateInput(input.fechaNac,"fechaNac")',ng-model='input.fechaNac')
+                              .col-md-6.col-xs-6#genero
+                                select.form-control(name='genero',ng-change='validateInput(input.genero,"genero")',ng-model='input.genero')
                                   option(value='')
                                   option(value='0') Masculino
                                   option(value='1') Femenino
@@ -81,10 +81,10 @@ html(ng-app='Estoma')
                               .col-md-6.col-xs-6
                                   label Ocupación
                             .row
-                              .col-md-6.col-xs-6
-                                input.form-control(name='lugarNac',placeholder='Lugar de Nacimiento',type='text')
-                              .col-md-6.col-xs-6
-                                input.form-control(name='ocupacion',placeholder='Ocupación',type='text')
+                              .col-md-6.col-xs-6#lugarNac
+                                input.form-control(name='lugarNac',placeholder='Lugar de Nacimiento',type='text',ng-change='validateInput(input.lugarNac,"lugarNac")',ng-model='input.lugarNac')
+                              .col-md-6.col-xs-6#ocupacion
+                                input.form-control(name='ocupacion',placeholder='Ocupación',type='text',ng-change='validateInput(input.ocupacion,"ocupacion")',ng-model='input.ocupacion')
                           .form-group
                             .row
                               .col-md-6.col-xs-6
@@ -92,16 +92,16 @@ html(ng-app='Estoma')
                               .col-md-6.col-xs-6
                                 label Estado Civil
                             .row
-                              .col-md-6.col-xs-6
-                                select.form-control(name='escolaridad')
+                              .col-md-6.col-xs-6#escolaridad
+                                select.form-control(name='escolaridad',ng-change='validateInput(input.escolaridad,"escolaridad")',ng-model='input.escolaridad')
                                   option(value='')
                                   option(value='0') Nula
                                   option(value='1') Primaria
                                   option(value='2') Secundaria
                                   option(value='3') Medio Superior
                                   option(value='4') Superior
-                              .col-md-6.col-xs-6
-                                select.form-control(name='edoCivil')
+                              .col-md-6.col-xs-6#edoCivil
+                                select.form-control(name='edoCivil',ng-change='validateInput(input.edoCivil,"edoCivil")',ng-model='input.edoCivil')
                                   option(value='')
                                   option(value='0') Soltero
                                   option(value='1') Casado
@@ -110,33 +110,33 @@ html(ng-app='Estoma')
                           .form-group
                             label Domicilio
                             .row
-                              .col-md-4.col-xs-4
-                                input.form-control(name='calle',placeholder='Calle',type='text')
-                              .col-md-4.col-xs-4
-                                input.form-control(name='exterior',placeholder='Número Exterior',type='text')
-                              .col-md-4.col-xs-4
-                                input.form-control(name='interior',placeholder='Número Interior',type='text')
+                              .col-md-4.col-xs-4#calle
+                                input.form-control(name='calle',placeholder='Calle',type='text',ng-change='validateInput(input.calle,"calle")',ng-model='input.calle')
+                              .col-md-4.col-xs-4#exterior
+                                input.form-control(name='exterior',placeholder='Número Exterior',type='text',ng-change='validateInput(input.exterior,"exterior")',ng-model='input.exterior')
+                              .col-md-4.col-xs-4#interior
+                                input.form-control(name='interior',placeholder='Número Interior',type='text',ng-change='validateInput(input.interior,"interior")',ng-model='input.interior')
                           .form-group  
                             .row
-                              .col-md-6.col-xs-6
-                                input.form-control(name='colonia',placeholder='Colonia',type='text')
-                              .col-md-6.col-xs-6
-                                input.form-control(name='cp',placeholder='Código Postal',type='text')
+                              .col-md-6.col-xs-6#colonia
+                                input.form-control(name='colonia',placeholder='Colonia',type='text',ng-change='validateInput(input.colonia,"colonia")',ng-model='input.colonia')
+                              .col-md-6.col-xs-6#cp
+                                input.form-control(name='cp',placeholder='Código Postal',type='text',ng-change='validateInput(input.cp,"cp")',ng-model='input.cp')
                           .form-group  
                             .row
-                              .col-md-6.col-xs-6
-                                input.form-control(name='estado',placeholder='Estado',type='text')
-                              .col-md-6.col-xs-6
-                                input.form-control(name='municipio',placeholder='Municipio',type='text')
+                              .col-md-6.col-xs-6#estado
+                                input.form-control(name='estado',placeholder='Estado',type='text',ng-change='validateInput(input.estado,"estado")',ng-model='input.estado')
+                              .col-md-6.col-xs-6#municipio
+                                input.form-control(name='municipio',placeholder='Municipio',type='text',ng-change='validateInput(input.municipio,"municipio")',ng-model='input.municipio')
                           .form-group
                             label Teléfonos
                             .row
-                              .col-md-4.col-xs-4
-                                input.form-control(name='telFijo',placeholder='Fijo',type='text')
-                              .col-md-4.col-xs-4
-                                input.form-control(name='telMovil',placeholder='Móvil',type='text')
-                              .col-md-4.col-xs-4
-                                input.form-control(name='telOficina',placeholder='Oficina',type='text')
+                              .col-md-4.col-xs-4#telFijo
+                                input.form-control(name='telFijo',placeholder='Fijo',type='text',ng-change='validateInput(input.telFijo,"telFijo")',ng-model='input.telFijo')
+                              .col-md-4.col-xs-4#telMovil
+                                input.form-control(name='telMovil',placeholder='Móvil',type='text',ng-change='validateInput(input.telMovil,"telMovil")',ng-model='input.telMovil')
+                              .col-md-4.col-xs-4#telOficina
+                                input.form-control(name='telOficina',placeholder='Oficina',type='text',ng-change='validateInput(input.telOficina,"telOficina")',ng-model='input.telOficina')
                           .form-group
                             .row
                               .col-md-6.col-xs-6
@@ -144,10 +144,10 @@ html(ng-app='Estoma')
                               .col-md-6.col-xs-6
                                 label E-mail
                             .row
-                              .col-md-6.col-xs-6
-                                input.form-control(name='curp',placeholder='CURP',type='text')
-                              .col-md-6.col-xs-6
-                                input.form-control(name='email',placeholder='Correo Electrónico',type='mail')
+                              .col-md-6.col-xs-6#curp
+                                input.form-control(name='curp',placeholder='CURP',type='text',ng-change='validateInput(input.curp,"curp")',ng-model='input.curp')
+                              .col-md-6.col-xs-6#email
+                                input.form-control(name='email',placeholder='Correo Electrónico',type='mail',ng-change='validateInput(input.email,"email")',ng-model='input.email')
                           .form-group
                             .row
                               .col-md-6.col-xs-6
@@ -155,12 +155,12 @@ html(ng-app='Estoma')
                               .col-md-6.col-xs-6
                                 label Tipo de Sangre
                             .row
-                              .col-md-6.col-xs-6
+                              .col-md-6.col-xs-6#ingresos
                                 .input-group
                                   span#basic-addon1.input-group-addon $
-                                  input.form-control(type='text', placeholder='Ingresos',name='ingresos', aria-describedby='basic-addon1')
-                              .col-md-6.col-xs-6
-                                select.form-control(name='sangre')
+                                  input.form-control(type='text', placeholder='Ingresos',name='ingresos', aria-describedby='basic-addon1',ng-change='validateInput(input.ingresos,"ingresos")',ng-model='input.ingresos')
+                              .col-md-6.col-xs-6#sangre
+                                select.form-control(name='sangre',ng-change='validateInput(input.sangre,"sangre")',ng-model='input.sangre')
                                   option(value='')
                                   option(value='0') A+
                                   option(value='1') A-
