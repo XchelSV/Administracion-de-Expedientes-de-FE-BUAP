@@ -12,7 +12,14 @@ module.exports = (function (app){
 
 	.get(function (request , response){
 
-		response.render('index')
+		if (request.session._id){
+				response.render('index')
+			}
+			else{
+				request.session.destroy(function (err){
+				response.redirect('/');
+				})
+			}
 
 	})
 
