@@ -1,6 +1,6 @@
-var app = angular.module('Estoma',['ngRoute', 'ngCookies']);
+var app = angular.module('Estoma',[/*'ngRoute', 'ngCookies'*/]);
 
-app.controller ('indexController',function  ($scope , $http, $window, $cookies) {
+app.controller ('indexController',function  ($scope , $http, $window) {
 
 	var i = 0;
 	$scope.array = [0]
@@ -23,6 +23,23 @@ app.controller ('indexController',function  ($scope , $http, $window, $cookies) 
 			$scope.array.pop(i);
 			i--;
 			console.log($scope.array);
+		}
+
+	}
+
+	$scope.input;
+	$scope.validateInput = function (input,div){
+
+		var divisor = angular.element(document.querySelector('#'+div));
+
+		if(input != ''){
+			
+			divisor.removeClass('has-error');			
+			divisor.addClass('has-success');
+		}else
+		{
+			divisor.removeClass('has-success');
+			divisor.addClass('has-error');
 		}
 
 	}
