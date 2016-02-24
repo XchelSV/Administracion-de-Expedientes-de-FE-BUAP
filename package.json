@@ -6,7 +6,7 @@
     "lint": "echo '===> linting' && jshint .",
     "test": "echo '===> testing' && mocha -c test",
     "pretest": "npm run lint -s",
-    "minify:js": "echo '===> minify:js' && uglifyjs assets/js/tab.js -o public/js/tab.js",
+    "minify:js": "echo '===> minify:js' && uglifyjs assets/js/main.js -o public/js/main.js",
     "minify:css": "echo '===> minify:css' && cleancss assets/css/styleOld.css -o public/css/styleOld.css",
     "feri:images": "echo '===> Optimizing images' && feri assets/images/ public/images ",
     "build": "echo '===> building' && npm run test -s && npm run minify:js -s && npm run minify:css -s && npm run feri:images -s"
