@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-bcrypt = require('bcrypt'),
-SALT_WORK_FACTOR = 10;
+var bcrypt = require('bcrypt');
+var SALT_WORK_FACTOR = 10;
 
 var estudianteSchema = mongoose.Schema({
     nombre: String,

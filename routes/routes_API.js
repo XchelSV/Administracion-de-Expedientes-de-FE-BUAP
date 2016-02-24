@@ -23,7 +23,7 @@ var  Estudiante = require('../models/estudiante');
 				if (err) throw err;
 				console.log(estudiante);
 
-				if(estudiante != undefined){
+				if(estudiante !== undefined){
 					estudiante.comparePassword(request.body.password, function (err , pass){
 						if (err) throw err;
 						console.log(pass);
@@ -35,21 +35,21 @@ var  Estudiante = require('../models/estudiante');
 								response.redirect('/test');
 							}
 							else{
-								response.redirect('/')
+								response.redirect('/');
 								
 							}
-					})
+					});
 				}else
 				{
-					response.redirect('/')
+					response.redirect('/');
 					/*response.cookie('attempUser', true)
 					response.cookie('attempPass', false)
 					response.render('login')*/
 					
 				}
 
-			})
+			});
 
-	})
+	});
 	
 });

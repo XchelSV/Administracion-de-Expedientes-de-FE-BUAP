@@ -1,9 +1,9 @@
 var connectToMongoose = function (mongoose) {
     
 		var connect = function () {
-			var options = { server: { socketOptions: { keepAlive: 1 } } }
-			mongoose.connect( 'mongodb://localhost/EstomaDB', options)
-		}
+			var options = { server: { socketOptions: { keepAlive: 1 } } };
+			mongoose.connect( 'mongodb://localhost/EstomaDB', options);
+		};
 		connect();
 		
 		mongoose.connection.on('connected', function () {

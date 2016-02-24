@@ -25,8 +25,6 @@ var expedienteSchema = mongoose.Schema({
          telefono: String,
          curp: String, 
          email: String,
-         ingresos: String,
-         sangre: String,
          ingresos: Number,
          sangre: String
      },
