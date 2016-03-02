@@ -11,8 +11,8 @@ var expedienteSchema = mongoose.Schema({
          sexo: Boolean,
          lugarNac: String,
          ocupacion: String,
-         escolaridad: String,
-         edoCivil: String,
+         escolaridad: Number,
+         edoCivil: Number,
          domicilio: {
              calle: String,
              numeroInt: String,
@@ -22,11 +22,17 @@ var expedienteSchema = mongoose.Schema({
              municipio: String,
              estado: String
          },
-         telefono: String,
+         telefono: {
+            telFijo: String,
+            telMovil: String,
+            telOficina: String
+         },
          curp: String, 
          email: String,
          ingresos: Number,
-         sangre: String
+         sangre: Number,
+         vacunas:[String],
+         responsable:[]
      },
     datosSalud:{
         heredofamiliares:{
@@ -70,3 +76,5 @@ var expedienteSchema = mongoose.Schema({
     },
     expediente:[]//{fecha:date,motivo:string,padecimiento:str}
     });
+
+module.exports = mongoose.model('Expediente', expedienteSchema);
