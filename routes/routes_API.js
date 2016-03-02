@@ -1,5 +1,6 @@
 module.exports = (function (app,EstomaDB){
 var  Estudiante = require('../models/estudiante');
+var  Expediente = require('../models/expediente');
 
 	app.route('/login')
 
@@ -51,5 +52,58 @@ var  Estudiante = require('../models/estudiante');
 			});
 
 	});
+
+	
+	app.route('/fichaDeIdentificacion')
+
+		.post(function (request,response){
+
+			var newExpediente = new Expediente({
+
+				datosParticulares:{
+			         nombre:{
+			            nombre: request.body.nombre.nombre,
+			            apellidoP: request.body.nombre.apellidoP,
+			            apellidoM: request.body.nombre.apellidoM
+			         },
+			         fechaNac: request.body.fechaNac,
+			         sexo: request.body.sexo,
+			         lugarNac: request.body.lugarNac,
+			         ocupacion: request.body.ocupacion,
+			         escolaridad: request.body.escolaridad,
+			         edoCivil: request.body.edoCivil,
+			         domicilio: {
+			             calle: request.body.domicilio.calle,
+			             numeroInt: request.body.domicilio.numeroInt,
+			             numeroExt: request.body.domicilio.numeroExt,
+			             cp: request.body.domicilio.cp,
+			             colonia: request.body.domicilio.colonia,
+			             municipio: request.body.domicilio.municipio,
+			             estado: request.body.domicilio.estado
+			         },
+			         telefono: {
+			            telFijo: request.body.telefono.telFijo,
+			            telMovil: request.body.telefono.telMovil,
+			            telOficina: request.body.telefono.telOficina
+			         },
+			         curp: request.body.curp, 
+			         email: request.body.email,
+			         ingresos: request.body.ingresos,
+			         sangre: request.body.sangre,
+			         vacunas:request.body.vacunas,
+			         responsable:[]
+			     }
+
+			});
+
+			newExpediente.save(function (err){
+				if (err) throw err;
+
+				response.sendStatus(200);
+			});			
+
+		});
+
+	
 	
 });
