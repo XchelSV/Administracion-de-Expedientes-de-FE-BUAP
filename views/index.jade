@@ -41,10 +41,10 @@ html(ng-app='Estoma')
             .container-fluid
               .jumbotron(style='margin-top:1%')
                 #accordion.panel-group(role='tablist', aria-multiselectable='true')
-                  .panel.panel-default
+                  #FIPanel.panel.panel-default
                     #headingOne.panel-heading(role='tab')
                       h4.panel-title
-                        a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                        a#Collapsible(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
                           | Ficha de Identificación
                     #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
                       .panel-body
@@ -53,11 +53,11 @@ html(ng-app='Estoma')
                             label Nombre Completo
                             .row
                               .col-md-4.col-xs-4#name
-                                input.form-control(name='nombre',placeholder='Nombre',type='text',ng-change='validateInput(input.name,"name")',ng-model='input.name')
+                                input.form-control(name='nombre',placeholder='Nombre',type='text',ng-change='validateInput(input.name,"name")',ng-model='input.name',ng-disabled='full')
                               .col-md-4.col-xs-4#apellidoP
-                                input.form-control(name='apellidoP',placeholder='Apellido Paterno',type='text',ng-change='validateInput(input.apellidoP,"apellidoP")',ng-model='input.apellidoP')
+                                input.form-control(name='apellidoP',placeholder='Apellido Paterno',type='text',ng-change='validateInput(input.apellidoP,"apellidoP")',ng-model='input.apellidoP',ng-disabled='full')
                               .col-md-4.col-xs-4#apellidoM
-                                input.form-control(name='apellidoM',placeholder='Apelido Materno',type='text',ng-change='validateInput(input.apellidoM,"apellidoM")',ng-model='input.apellidoM')
+                                input.form-control(name='apellidoM',placeholder='Apelido Materno',type='text',ng-change='validateInput(input.apellidoM,"apellidoM")',ng-model='input.apellidoM',ng-disabled='full')
                           .form-group
                             .row
                               .col-md-6.col-xs-6
@@ -66,9 +66,9 @@ html(ng-app='Estoma')
                                 label Género
                             .row
                               .col-md-6.col-xs-6#fechaNac
-                                input.form-control(name='fechaNac',type='date',ng-change='validateInput(input.fechaNac,"fechaNac")',ng-model='input.fechaNac')
+                                input.form-control(name='fechaNac',type='date',ng-change='validateInput(input.fechaNac,"fechaNac")',ng-model='input.fechaNac',ng-disabled='full')
                               .col-md-6.col-xs-6#genero
-                                select.form-control(name='genero',ng-change='validateInput(input.genero,"genero")',ng-model='input.genero')
+                                select.form-control(name='genero',ng-change='validateInput(input.genero,"genero")',ng-model='input.genero',ng-disabled='full')
                                   option(value='')
                                   option(value='0') Masculino
                                   option(value='1') Femenino
@@ -80,9 +80,9 @@ html(ng-app='Estoma')
                                   label Ocupación
                             .row
                               .col-md-6.col-xs-6#lugarNac
-                                input.form-control(name='lugarNac',placeholder='Lugar de Nacimiento',type='text',ng-change='validateInput(input.lugarNac,"lugarNac")',ng-model='input.lugarNac')
+                                input.form-control(name='lugarNac',placeholder='Lugar de Nacimiento',type='text',ng-change='validateInput(input.lugarNac,"lugarNac")',ng-model='input.lugarNac',ng-disabled='full')
                               .col-md-6.col-xs-6#ocupacion
-                                input.form-control(name='ocupacion',placeholder='Ocupación',type='text',ng-change='validateInput(input.ocupacion,"ocupacion")',ng-model='input.ocupacion')
+                                input.form-control(name='ocupacion',placeholder='Ocupación',type='text',ng-change='validateInput(input.ocupacion,"ocupacion")',ng-model='input.ocupacion',ng-disabled='full')
                           .form-group
                             .row
                               .col-md-6.col-xs-6
@@ -91,7 +91,7 @@ html(ng-app='Estoma')
                                 label Estado Civil
                             .row
                               .col-md-6.col-xs-6#escolaridad
-                                select.form-control(name='escolaridad',ng-change='validateInput(input.escolaridad,"escolaridad")',ng-model='input.escolaridad')
+                                select.form-control(name='escolaridad',ng-change='validateInput(input.escolaridad,"escolaridad")',ng-model='input.escolaridad',ng-disabled='full')
                                   option(value='')
                                   option(value='0') Nula
                                   option(value='1') Primaria
@@ -99,7 +99,7 @@ html(ng-app='Estoma')
                                   option(value='3') Medio Superior
                                   option(value='4') Superior
                               .col-md-6.col-xs-6#edoCivil
-                                select.form-control(name='edoCivil',ng-change='validateInput(input.edoCivil,"edoCivil")',ng-model='input.edoCivil')
+                                select.form-control(name='edoCivil',ng-change='validateInput(input.edoCivil,"edoCivil")',ng-model='input.edoCivil',ng-disabled='full')
                                   option(value='')
                                   option(value='0') Soltero
                                   option(value='1') Casado
@@ -109,32 +109,32 @@ html(ng-app='Estoma')
                             label Domicilio
                             .row
                               .col-md-4.col-xs-4#calle
-                                input.form-control(name='calle',placeholder='Calle',type='text',ng-change='validateInput(input.calle,"calle")',ng-model='input.calle')
+                                input.form-control(name='calle',placeholder='Calle',type='text',ng-change='validateInput(input.calle,"calle")',ng-model='input.calle',ng-disabled='full')
                               .col-md-4.col-xs-4#exterior
-                                input.form-control(name='exterior',placeholder='Número Exterior',type='text',ng-change='validateInput(input.exterior,"exterior")',ng-model='input.exterior')
+                                input.form-control(name='exterior',placeholder='Número Exterior',type='text',ng-change='validateInput(input.exterior,"exterior")',ng-model='input.exterior',ng-disabled='full')
                               .col-md-4.col-xs-4#interior
-                                input.form-control(name='interior',placeholder='Número Interior',type='text',ng-change='validateInput(input.interior,"interior")',ng-model='input.interior')
+                                input.form-control(name='interior',placeholder='Número Interior',type='text',ng-change='validateInput(input.interior,"interior")',ng-model='input.interior',ng-disabled='full')
                           .form-group  
                             .row
                               .col-md-6.col-xs-6#colonia
-                                input.form-control(name='colonia',placeholder='Colonia',type='text',ng-change='validateInput(input.colonia,"colonia")',ng-model='input.colonia')
+                                input.form-control(name='colonia',placeholder='Colonia',type='text',ng-change='validateInput(input.colonia,"colonia")',ng-model='input.colonia',ng-disabled='full')
                               .col-md-6.col-xs-6#cp
-                                input.form-control(name='cp',placeholder='Código Postal',type='text',ng-change='validateInput(input.cp,"cp")',ng-model='input.cp')
+                                input.form-control(name='cp',placeholder='Código Postal',type='text',ng-change='validateInput(input.cp,"cp")',ng-model='input.cp',ng-disabled='full')
                           .form-group  
                             .row
                               .col-md-6.col-xs-6#estado
-                                input.form-control(name='estado',placeholder='Estado',type='text',ng-change='validateInput(input.estado,"estado")',ng-model='input.estado')
+                                input.form-control(name='estado',placeholder='Estado',type='text',ng-change='validateInput(input.estado,"estado")',ng-model='input.estado',ng-disabled='full')
                               .col-md-6.col-xs-6#municipio
-                                input.form-control(name='municipio',placeholder='Municipio',type='text',ng-change='validateInput(input.municipio,"municipio")',ng-model='input.municipio')
+                                input.form-control(name='municipio',placeholder='Municipio',type='text',ng-change='validateInput(input.municipio,"municipio")',ng-model='input.municipio',ng-disabled='full')
                           .form-group
                             label Teléfonos
                             .row
                               .col-md-4.col-xs-4#telFijo
-                                input.form-control(name='telFijo',placeholder='Fijo',type='text',ng-change='validateInput(input.telFijo,"telFijo")',ng-model='input.telFijo')
+                                input.form-control(name='telFijo',placeholder='Fijo',type='text',ng-change='validateInput(input.telFijo,"telFijo")',ng-model='input.telFijo',ng-disabled='full')
                               .col-md-4.col-xs-4#telMovil
-                                input.form-control(name='telMovil',placeholder='Móvil',type='text',ng-change='validateInput(input.telMovil,"telMovil")',ng-model='input.telMovil')
+                                input.form-control(name='telMovil',placeholder='Móvil',type='text',ng-change='validateInput(input.telMovil,"telMovil")',ng-model='input.telMovil',ng-disabled='full')
                               .col-md-4.col-xs-4#telOficina
-                                input.form-control(name='telOficina',placeholder='Oficina',type='text',ng-change='validateInput(input.telOficina,"telOficina")',ng-model='input.telOficina')
+                                input.form-control(name='telOficina',placeholder='Oficina',type='text',ng-change='validateInput(input.telOficina,"telOficina")',ng-model='input.telOficina',ng-disabled='full')
                           .form-group
                             .row
                               .col-md-6.col-xs-6
@@ -143,9 +143,9 @@ html(ng-app='Estoma')
                                 label E-mail
                             .row
                               .col-md-6.col-xs-6#curp
-                                input.form-control(name='curp',placeholder='CURP',type='text',ng-change='validateInput(input.curp,"curp")',ng-model='input.curp')
+                                input.form-control(name='curp',placeholder='CURP',type='text',ng-change='validateInput(input.curp,"curp")',ng-model='input.curp',ng-disabled='full')
                               .col-md-6.col-xs-6#email
-                                input.form-control(name='email',placeholder='Correo Electrónico',type='mail',ng-change='validateInput(input.email,"email")',ng-model='input.email')
+                                input.form-control(name='email',placeholder='Correo Electrónico',type='mail',ng-change='validateInput(input.email,"email")',ng-model='input.email',ng-disabled='full')
                           .form-group
                             .row
                               .col-md-6.col-xs-6
@@ -156,9 +156,9 @@ html(ng-app='Estoma')
                               .col-md-6.col-xs-6#ingresos
                                 .input-group
                                   span#basic-addon1.input-group-addon $
-                                  input.form-control(type='text', placeholder='Ingresos',name='ingresos', aria-describedby='basic-addon1',ng-change='validateInput(input.ingresos,"ingresos")',ng-model='input.ingresos')
+                                  input.form-control(type='text', placeholder='Ingresos',name='ingresos', aria-describedby='basic-addon1',ng-change='validateInput(input.ingresos,"ingresos")',ng-model='input.ingresos',ng-disabled='full')
                               .col-md-6.col-xs-6#sangre
-                                select.form-control(name='sangre',ng-change='validateInput(input.sangre,"sangre")',ng-model='input.sangre')
+                                select.form-control(name='sangre',ng-change='validateInput(input.sangre,"sangre")',ng-model='input.sangre',ng-disabled='full')
                                   option(value='')
                                   option(value='0') A+
                                   option(value='1') A-
@@ -170,35 +170,35 @@ html(ng-app='Estoma')
                                   option(value='7') O-
                           .form-group
                             .row
-                              .col-md-1.col-xs-3
+                              .col-md-1.col-xs-2
                                 label Vacunación
-                              .col-md-2.col-xs-5
-                                button.btn.btn-danger(ng-click='pushVacuna()') Agregar Vacuna 
+                              .col-md-2.col-xs-4
+                                button.btn.btn-danger(ng-click='pushVacuna()',ng-disabled='full') Agregar Vacuna 
                                   span.glyphicon.glyphicon-plus-sign
                               .col-md-2.col-xs-3
-                                button.btn.btn-danger(ng-click='popVacuna()') Quitar Vacuna 
+                                button.btn.btn-danger(ng-click='popVacuna()',ng-disabled='full') Quitar Vacuna 
                                   span.glyphicon.glyphicon-minus
                               
                             .row
                               .col-md-4.col-xs-4(style='margin-top:1%',ng-repeat='arr in array')
-                                input.form-control(type='text',name='vacuna{{arr}}',placeholder='Nombre de Vacuna')
+                                input.form-control(type='text',id='vacuna{{arr}}',name='vacuna{{arr}}',placeholder='Nombre de Vacuna',ng-disabled='full')
 
 
                           .form-group
                             .row
                               .col-md-offset-6.col-offset-xs-1.col-md-6.col-xs-10
                                 i Agregar Responsable (En caso del paciente ser menor de Edad): 
-                                input(type='checkbox', ng-model='responsable',name= 'responsableCheck') 
+                                input(type='checkbox', ng-model='responsable',name= 'responsableCheck',ng-disabled='full') 
                           div(ng-show='responsable')
                             .form-group
                               label Nombre Completo (Datos del Responsable)
                               .row
                                 .col-md-4.col-xs-4
-                                  input.form-control(name='nombre',placeholder='Nombre',type='text')
+                                  input.form-control(name='nombre',placeholder='Nombre',type='text',ng-disabled='full')
                                 .col-md-4.col-xs-4
-                                  input.form-control(name='apellidoP',placeholder='Apellido Paterno',type='text')
+                                  input.form-control(name='apellidoP',placeholder='Apellido Paterno',type='text',ng-disabled='full')
                                 .col-md-4.col-xs-4
-                                  input.form-control(name='apellidoM',placeholder='Apelido Materno',type='text')
+                                  input.form-control(name='apellidoM',placeholder='Apelido Materno',type='text',ng-disabled='full')
                             .form-group
                               .row
                                 .col-md-6.col-xs-6
@@ -207,9 +207,9 @@ html(ng-app='Estoma')
                                   label Género
                               .row
                                 .col-md-6.col-xs-6
-                                  input.form-control(name='fechaNac',type='date')
+                                  input.form-control(name='fechaNac',type='date',ng-disabled='full')
                                 .col-md-6.col-xs-6
-                                  select.form-control(name='genero')
+                                  select.form-control(name='genero',ng-disabled='full')
                                     option(value='')
                                     option(value='0') Masculino
                                     option(value='1') Femenino
@@ -221,9 +221,9 @@ html(ng-app='Estoma')
                                     label Ocupación
                               .row
                                 .col-md-6.col-xs-6
-                                  input.form-control(name='lugarNac',placeholder='Lugar de Nacimiento',type='text')
+                                  input.form-control(name='lugarNac',placeholder='Lugar de Nacimiento',type='text',ng-disabled='full')
                                 .col-md-6.col-xs-6
-                                  input.form-control(name='ocupacion',placeholder='Ocupación',type='text')
+                                  input.form-control(name='ocupacion',placeholder='Ocupación',type='text',ng-disabled='full')
                             .form-group
                               .row
                                 .col-md-6.col-xs-6
@@ -232,7 +232,7 @@ html(ng-app='Estoma')
                                   label Estado Civil
                               .row
                                 .col-md-6.col-xs-6
-                                  select.form-control(name='escolaridad')
+                                  select.form-control(name='escolaridad',ng-disabled='full')
                                     option(value='')
                                     option(value='0') Nula
                                     option(value='1') Primaria
@@ -240,7 +240,7 @@ html(ng-app='Estoma')
                                     option(value='3') Medio Superior
                                     option(value='4') Superior
                                 .col-md-6.col-xs-6
-                                  select.form-control(name='edoCivil')
+                                  select.form-control(name='edoCivil',ng-disabled='full')
                                     option(value='')
                                     option(value='0') Soltero
                                     option(value='1') Casado
@@ -250,32 +250,32 @@ html(ng-app='Estoma')
                               label Domicilio
                               .row
                                 .col-md-4.col-xs-4
-                                  input.form-control(name='calle',placeholder='Calle',type='text')
+                                  input.form-control(name='calle',placeholder='Calle',type='text',ng-disabled='full')
                                 .col-md-4.col-xs-4
-                                  input.form-control(name='exterior',placeholder='Número Exterior',type='text')
+                                  input.form-control(name='exterior',placeholder='Número Exterior',type='text',ng-disabled='full')
                                 .col-md-4.col-xs-4
-                                  input.form-control(name='interior',placeholder='Número Interior',type='text')
+                                  input.form-control(name='interior',placeholder='Número Interior',type='text',ng-disabled='full')
                             .form-group  
                               .row
                                 .col-md-6.col-xs-6
-                                  input.form-control(name='colonia',placeholder='Colonia',type='text')
+                                  input.form-control(name='colonia',placeholder='Colonia',type='text',ng-disabled='full')
                                 .col-md-6.col-xs-6
-                                  input.form-control(name='cp',placeholder='Código Postal',type='text')
+                                  input.form-control(name='cp',placeholder='Código Postal',type='text',ng-disabled='full')
                             .form-group  
                               .row
                                 .col-md-6.col-xs-6
-                                  input.form-control(name='estado',placeholder='Estado',type='text')
+                                  input.form-control(name='estado',placeholder='Estado',type='text',ng-disabled='full')
                                 .col-md-6.col-xs-6
-                                  input.form-control(name='municipio',placeholder='Municipio',type='text')
+                                  input.form-control(name='municipio',placeholder='Municipio',type='text',ng-disabled='full')
                             .form-group
                               label Teléfonos
                               .row
                                 .col-md-4.col-xs-4
-                                  input.form-control(name='telFijo',placeholder='Fijo',type='text')
+                                  input.form-control(name='telFijo',placeholder='Fijo',type='text',ng-disabled='full')
                                 .col-md-4.col-xs-4
-                                  input.form-control(name='telMovil',placeholder='Móvil',type='text')
+                                  input.form-control(name='telMovil',placeholder='Móvil',type='text',ng-disabled='full')
                                 .col-md-4.col-xs-4
-                                  input.form-control(name='telOficina',placeholder='Oficina',type='text')
+                                  input.form-control(name='telOficina',placeholder='Oficina',type='text',ng-disabled='full')
                             .form-group
                               .row
                                 .col-md-6.col-xs-6
@@ -284,31 +284,37 @@ html(ng-app='Estoma')
                                   label E-mail
                               .row
                                 .col-md-6.col-xs-6
-                                  input.form-control(name='curp',placeholder='CURP',type='text')
+                                  input.form-control(name='curp',placeholder='CURP',type='text',ng-disabled='full')
                                 .col-md-6.col-xs-6
-                                  input.form-control(name='email',placeholder='Correo Electrónico',type='mail')
+                                  input.form-control(name='email',placeholder='Correo Electrónico',type='mail',ng-disabled='full')
                             .form-group
+                              .row
+                                .col-md-6.col-xs-6
+                                  label Ingresos
+                                .col-md-6.col-xs-6
+                                  label Tipo de Sangre
+                              .row
+                                .col-md-6.col-xs-6
+                                  .input-group
+                                    span#basic-addon1.input-group-addon $
+                                    input.form-control(type='text', placeholder='Ingresos',name='ingresos', aria-describedby='basic-addon1',ng-disabled='full')
+                                .col-md-6.col-xs-6
+                                  select.form-control(name='sangre',ng-disabled='full')
+                                    option(value='')
+                                    option(value='0') A+
+                                    option(value='1') A-
+                                    option(value='2') B+
+                                    option(value='3') B-
+                                    option(value='4') AB+
+                                    option(value='5') AB-
+                                    option(value='6') O+
+                                    option(value='7') O-
+
+                          .form-group
                             .row
-                              .col-md-6.col-xs-6
-                                label Ingresos
-                              .col-md-6.col-xs-6
-                                label Tipo de Sangre
-                            .row
-                              .col-md-6.col-xs-6
-                                .input-group
-                                  span#basic-addon1.input-group-addon $
-                                  input.form-control(type='text', placeholder='Ingresos',name='ingresos', aria-describedby='basic-addon1')
-                              .col-md-6.col-xs-6
-                                select.form-control(name='sangre')
-                                  option(value='')
-                                  option(value='0') A+
-                                  option(value='1') A-
-                                  option(value='2') B+
-                                  option(value='3') B-
-                                  option(value='4') AB+
-                                  option(value='5') AB-
-                                  option(value='6') O+
-                                  option(value='7') O-
+                              .col-md-10.col-md-offset-1.col-xs-10.col-xs-offset-1
+                                button#btnSaveFI.btn.btn-primary.btn-lg.btn-block(type='submit',ng-click='saveFicha()',ng-disabled='full') Guardar Ficha de Identificación
+
 
 
 
