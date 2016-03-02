@@ -13,12 +13,12 @@ module.exports = (function (app){
 	.get(function (request , response){
 
 		if (request.session._id){
-				response.render('index')
+				response.render('index');
 			}
 			else{
 				request.session.destroy(function (err){
 				response.redirect('/');
-				})
+				});
 			}
 
 	});
