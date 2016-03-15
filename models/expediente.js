@@ -36,6 +36,7 @@ var expedienteSchema = mongoose.Schema({
      },
     datosSalud:{
         heredofamiliares:{
+            cardiovasculares:[],
             endrocrinos: [],
             neurologicos: [],
             respiratorios: [],
