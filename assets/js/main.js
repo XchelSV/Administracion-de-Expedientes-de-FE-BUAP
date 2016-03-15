@@ -38,9 +38,25 @@ var app = angular.module('Estoma',['ngRoute', 'ngCookies']);
 app.controller ('indexController',function  ($scope , $http, $window) {
 
 	var i = 0;
+	var NoEnfCardio = 0;
+	var NoFamCardio = 0;
+	var NoEnfEndo = 0;
+	var NoFamEndo = 0;
+	var NoFamNeuro = 0;
+	var NoEnfResp = 0;
+	var NoFamResp = 0;
+	var NoFamNeo = 0;
 	$scope.array = [0];
+	$scope.enfCardio = [0];
+	$scope.famCardio = [0];
+	$scope.enfEndo = [0];
+	$scope.famEndo = [0];
+	$scope.famNeuro = [0];
+	$scope.enfResp = [0];
+	$scope.famResp = [0];
+	$scope.famNeo = [0];
 	$scope.responsable = false;
-
+//Vacunas
 	$scope.pushVacuna = function(){
 
 		i++;
@@ -60,6 +76,185 @@ app.controller ('indexController',function  ($scope , $http, $window) {
 			console.log($scope.array);
 		}
 	};
+//
+
+//-------- CardioVascular -------------
+
+	$scope.pushEnfCardio = function(){
+
+		NoEnfCardio++;
+		$scope.enfCardio.push(NoEnfCardio);
+		
+
+	};
+
+	$scope.popEnfCardio = function(){
+
+		if(NoEnfCardio===0){
+
+		}else{
+
+			$scope.enfCardio.pop(NoEnfCardio);
+			NoEnfCardio--;
+			
+		}
+	};
+
+	$scope.pushFamCardio = function(){
+
+		NoFamCardio++;
+		$scope.famCardio.push(NoFamCardio);
+		
+
+	};
+
+	$scope.popFamCardio = function(){
+
+		if(NoFamCardio===0){
+
+		}else{
+
+			$scope.famCardio.pop(NoFamCardio);
+			NoFamCardio--;
+			
+		}
+	};
+// -------------
+
+// -------- Endócrino ------------
+
+	$scope.pushEnfEndo = function(){
+
+		NoEnfEndo++;
+		$scope.enfEndo.push(NoEnfEndo);
+		
+
+	};
+
+	$scope.popEnfEndo = function(){
+
+		if(NoEnfEndo===0){
+
+		}else{
+
+			$scope.enfEndo.pop(NoEnfEndo);
+			NoEnfEndo--;
+			
+		}
+	};
+
+	$scope.pushFamEndo = function(){
+
+		NoFamEndo++;
+		$scope.famEndo.push(NoFamEndo);
+		
+
+	};
+
+	$scope.popFamEndo = function(){
+
+		if(NoFamEndo===0){
+
+		}else{
+
+			$scope.famEndo.pop(NoFamEndo);
+			NoFamEndo--;
+			
+		}
+	};
+// ----------------
+
+// --------------- Neurológicos ------------
+
+	$scope.pushFamNeuro = function(){
+
+		NoFamNeuro++;
+		$scope.famNeuro.push(NoFamNeuro);
+		
+
+	};
+
+	$scope.popFamNeuro = function(){
+
+		if(NoFamNeuro===0){
+
+		}else{
+
+			$scope.famNeuro.pop(NoFamNeuro);
+			NoFamNeuro--;
+			
+		}
+	};
+
+// ---------------
+
+// -------- Respiratorios ------------
+
+	$scope.pushEnfResp = function(){
+
+		NoEnfResp++;
+		$scope.enfResp.push(NoEnfResp);
+		
+
+	};
+
+	$scope.popEnfResp = function(){
+
+		if(NoEnfResp===0){
+
+		}else{
+
+			$scope.enfResp.pop(NoEnfResp);
+			NoEnfResp--;
+			
+		}
+	};
+
+	$scope.pushFamResp = function(){
+
+		NoFamResp++;
+		$scope.famResp.push(NoFamResp);
+		
+
+	};
+
+	$scope.popFamResp = function(){
+
+		if(NoFamResp===0){
+
+		}else{
+
+			$scope.famResp.pop(NoFamResp);
+			NoFamResp--;
+			
+		}
+	};
+// ----------------
+
+// --------------- Neoplásicos ------------
+
+	$scope.pushFamNeo = function(){
+
+		NoFamNeo++;
+		$scope.famNeo.push(NoFamNeo);
+		
+
+	};
+
+	$scope.popFamNeo = function(){
+
+		if(NoFamNeo===0){
+
+		}else{
+
+			$scope.famNeo.pop(NoFamNeo);
+			NoFamNeo--;
+			
+		}
+	};
+
+// ---------------
+
 	
 	$scope.input = '';
 	$scope.validateInput = function (input,div){
