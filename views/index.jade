@@ -326,7 +326,212 @@ html(ng-app='Estoma')
                           | Antecedentes Heredofamiliares
                     #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
                       .panel-body
-                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        form
+                          .form-group
+                            .row
+                              .col-md-12
+                                i Marca los antecedentes que se encuentren  presentes en abuelos, padres, tíos o hermanos y especifíca quien los padece ó ha padecido.
+                          
+                          //Antecedentes Cardiovasculares
+                          .form-group 
+                              label Cardiovasculares
+                            .row
+                              .col-md-3.col-xs-4.checkbox(style='margin-top:0%')
+                                label
+                                  input(type='checkbox', ng-model='hipertension', value='Hipertensión Arterial')
+                                |  Hipertensión Arterial
+                              .col-md-3.col-xs-4.checkbox
+                                label
+                                  input(type='checkbox', ng-model='cardiopatia', value='Cardiopatía Isquémica')
+                                |  Cardiopatía Isquémica
+                              .col-md-3.col-xs-4.checkbox
+                                label
+                                  input(type='checkbox', ng-model='otros1')
+                                |  Otros
+
+                          .form-group(ng-show='otros1',style='margin-top:1%')
+                            .row
+                              .col-md-2.col-xs-5
+                                button.btn.btn-danger(ng-click='pushEnfCardio()') Agregar Enfermedad 
+                                  span.glyphicon.glyphicon-plus-sign
+                              .col-md-3.col-xs-5
+                                button.btn.btn-danger(ng-click='popEnfCardio()') Quitar Enfermedad 
+                                  span.glyphicon.glyphicon-minus
+                            .row()
+                                .col-md-4.col-xs-6(ng-repeat='enf in enfCardio',style='margin-top:1%')
+                                  input.form-control(type='text',placeholder='Enfermedad',id='enfermedadCardio{{enf}}')  
+                          .form-group(style='margin-top:1%')
+                            .row
+                              .col-md-2.col-xs-5
+                                button.btn.btn-danger(ng-click='pushFamCardio()') Agregar Familiar 
+                                  span.glyphicon.glyphicon-plus-sign
+                              .col-md-3.col-xs-5
+                                button.btn.btn-danger(ng-click='popFamCardio()') Quitar Familiar
+                                  span.glyphicon.glyphicon-minus
+                            .row()
+                              .col-md-4.col-xs-6(ng-repeat='fam in famCardio',style='margin-top:1%')
+                                select.form-control(id='familiarCardio{{fam}}')
+                                    option(value='') ¿Quién los padece?
+                                    option(value='0') Abuelos
+                                    option(value='1') Padres
+                                    option(value='2') Hermanos
+                                    option(value='3') Tíos
+
+                          // Antecedentes Endocrinos
+                          .form-group 
+                              label Endócrinos
+                            .row
+                              .col-md-3.col-xs-4.checkbox(style='margin-top:0%')
+                                label
+                                  input(type='checkbox', ng-model='diabetes', value='Diabetes Mellitus')
+                                |  Diabetes Mellitus
+                              .col-md-3.col-xs-4.checkbox
+                                label
+                                  input(type='checkbox', ng-model='tiroideas', value='Enfermedades Tiroideas')
+                                |  Enfermedades Tiroideas
+                              .col-md-3.col-xs-4.checkbox
+                                label
+                                  input(type='checkbox', ng-model='otros2')
+                                |  Otros
+
+                          .form-group(ng-show='otros2',style='margin-top:1%')
+                            .row
+                              .col-md-2.col-xs-5
+                                button.btn.btn-danger(ng-click='pushEnfEndo()') Agregar Enfermedad 
+                                  span.glyphicon.glyphicon-plus-sign
+                              .col-md-3.col-xs-5
+                                button.btn.btn-danger(ng-click='popEnfEndo()') Quitar Enfermedad 
+                                  span.glyphicon.glyphicon-minus
+                            .row()
+                                .col-md-4.col-xs-6(ng-repeat='enf in enfEndo',style='margin-top:1%')
+                                  input.form-control(type='text',placeholder='Enfermedad',id='enfermedadEndo{{enf}}')  
+                          .form-group(style='margin-top:1%')
+                            .row
+                              .col-md-2.col-xs-5
+                                button.btn.btn-danger(ng-click='pushFamEndo()') Agregar Familiar 
+                                  span.glyphicon.glyphicon-plus-sign
+                              .col-md-3.col-xs-5
+                                button.btn.btn-danger(ng-click='popFamEndo()') Quitar Familiar
+                                  span.glyphicon.glyphicon-minus
+                            .row()
+                              .col-md-4.col-xs-6(ng-repeat='fam in famEndo',style='margin-top:1%')
+                                select.form-control(id='familiarEndo{{fam}}')
+                                    option(value='') ¿Quién los padece?
+                                    option(value='0') Abuelos
+                                    option(value='1') Padres
+                                    option(value='2') Hermanos
+                                    option(value='3') Tíos
+
+                          // Antecedentes Neurológicos
+                          .form-group 
+                              label Neurológicos
+                            .row
+                              .col-md-3.col-xs-4.checkbox(style='margin-top:0%')
+                                label
+                                  input(type='checkbox', ng-model='migrana', value='Migraña')
+                                |  Migraña
+                              .col-md-3.col-xs-4.checkbox
+                                label
+                                  input(type='checkbox', ng-model='epilepsia', value='Epilepsia')
+                                |  Epilepsia
+                              .col-md-3.col-xs-4.checkbox
+                                label
+                                  input(type='checkbox', ng-model='depresivas', value='Enfermedades Depresivas')
+                                |  Enfermedades Depresivas
+                              
+                          .form-group(style='margin-top:1%')
+                            .row
+                              .col-md-2.col-xs-5
+                                button.btn.btn-danger(ng-click='pushFamNeuro()') Agregar Familiar 
+                                  span.glyphicon.glyphicon-plus-sign
+                              .col-md-3.col-xs-5
+                                button.btn.btn-danger(ng-click='popFamNeuro()') Quitar Familiar
+                                  span.glyphicon.glyphicon-minus
+                            .row()
+                              .col-md-4.col-xs-6(ng-repeat='fam in famNeuro',style='margin-top:1%')
+                                select.form-control(id='familiarNeuro{{fam}}')
+                                    option(value='') ¿Quién los padece?
+                                    option(value='0') Abuelos
+                                    option(value='1') Padres
+                                    option(value='2') Hermanos
+                                    option(value='3') Tíos
+                                    
+                          // Antecedentes Respiratorios
+                          .form-group 
+                              label Respiratorios
+                            .row
+                              .col-md-3.col-xs-4.checkbox(style='margin-top:0%')
+                                label
+                                  input(type='checkbox', ng-model='asma', value='Asma')
+                                |  Asma
+                              
+                              .col-md-3.col-xs-4.checkbox
+                                label
+                                  input(type='checkbox', ng-model='otros3')
+                                |  Otros
+
+                          .form-group(ng-show='otros3',style='margin-top:1%')
+                            .row
+                              .col-md-2.col-xs-5
+                                button.btn.btn-danger(ng-click='pushEnfResp()') Agregar Enfermedad 
+                                  span.glyphicon.glyphicon-plus-sign
+                              .col-md-3.col-xs-5
+                                button.btn.btn-danger(ng-click='popEnfResp()') Quitar Enfermedad 
+                                  span.glyphicon.glyphicon-minus
+                            .row()
+                                .col-md-4.col-xs-6(ng-repeat='enf in enfResp',style='margin-top:1%')
+                                  input.form-control(type='text',placeholder='Enfermedad',id='enfermedadResp{{enf}}')  
+                          .form-group(style='margin-top:1%')
+                            .row
+                              .col-md-2.col-xs-5
+                                button.btn.btn-danger(ng-click='pushFamResp()') Agregar Familiar 
+                                  span.glyphicon.glyphicon-plus-sign
+                              .col-md-3.col-xs-5
+                                button.btn.btn-danger(ng-click='popFamResp()') Quitar Familiar
+                                  span.glyphicon.glyphicon-minus
+                            .row()
+                              .col-md-4.col-xs-6(ng-repeat='fam in famResp',style='margin-top:1%')
+                                select.form-control(id='familiarResp{{fam}}')
+                                    option(value='') ¿Quién los padece?
+                                    option(value='0') Abuelos
+                                    option(value='1') Padres
+                                    option(value='2') Hermanos
+                                    option(value='3') Tíos
+
+
+                          // Antecedentes Neoplásicos
+                          .form-group 
+                              label Neoplásicos
+                            .row
+                              .col-md-3.col-xs-4.checkbox(style='margin-top:0%')
+                                label
+                                  input(type='checkbox', ng-model='cancer', value='Cáncer')
+                                |  Cáncer
+                              .col-md-3.col-xs-4.checkbox
+                                label
+                                  input(type='checkbox', ng-model='tumores', value='Tumores')
+                                |  Tumores
+                              
+                              
+                          .form-group(style='margin-top:1%')
+                            .row
+                              .col-md-2.col-xs-5
+                                button.btn.btn-danger(ng-click='pushFamNeo()') Agregar Familiar 
+                                  span.glyphicon.glyphicon-plus-sign
+                              .col-md-3.col-xs-5
+                                button.btn.btn-danger(ng-click='popFamNeo()') Quitar Familiar
+                                  span.glyphicon.glyphicon-minus
+                            .row()
+                              .col-md-4.col-xs-6(ng-repeat='fam in famNeo',style='margin-top:1%')
+                                select.form-control(id='familiarNeo{{fam}}')
+                                    option(value='') ¿Quién los padece?
+                                    option(value='0') Abuelos
+                                    option(value='1') Padres
+                                    option(value='2') Hermanos
+                                    option(value='3') Tíos
+
+
+
                   .panel.panel-default
                     #headingThree.panel-heading(role='tab')
                       h4.panel-title
