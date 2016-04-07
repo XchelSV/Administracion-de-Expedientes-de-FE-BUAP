@@ -9,7 +9,8 @@ html(ng-app='Estoma')
     link(href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css')
     title Estomatologia BUAP
     script(type='text/javascript', src='js/angular.min.js')
-    script(type='text/javascript', src='js/jquery-1.11.1.min.js')
+    script(type='text/javascript', src='js/jquery-1.7.2.min.js')
+    script(type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js")
     script(type='text/javascript', src='js/bootstrap.min.js')
     script(type='text/javascript', src='js/main.js')
     script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-route.js')
@@ -19,6 +20,20 @@ html(ng-app='Estoma')
         font-size: 140%;
         font-family: "Raleway", sans-serif; 
       }
+    style.
+      #myCanvas {
+      border: 1px solid #9C9898;
+      }
+      #myCanvas2 {
+      border: 1px solid #9C9898;
+      }
+      #myCanvas3 {
+      border: 1px solid #9C9898;
+      }
+      #myCanvas4 {
+      border: 1px solid #9C9898;
+      }
+    
   body(ng-controller='indexController')
     header
       div
@@ -555,7 +570,29 @@ html(ng-app='Estoma')
                           | Exploracion
                     #collapseFive.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingFive')
                       .panel-body
-                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        #radio
+                          input#radio1(type='radio', name='accion', value='fractura', checked='checked')
+                          label(for='radio1') Fractura
+                          input#radio2(type='radio', name='accion', value='restauracion')
+                          label(for='radio2') Restauracion
+                          input#radio3(type='radio', name='accion', value='borrar')
+                          label(for='radio3') Borrar
+                          input#radio4(type='radio', name='accion', value='extraccion')
+                          label(for='radio4') Extraccion
+                          input#radio5(type='radio', name='accion', value='puente')
+                          label(for='radio5') Puente
+                        br
+                        #canvasesdiv(style='position:relative; width:810px; height:300px')
+                          canvas#myCanvas(width='810', height='220', style='z-index: 1; position:absolute; left:0px; top:0px;')
+                          canvas#myCanvas2(width='810', height='220', style='z-index: 2; position:absolute; left:0px; top:0px;')
+                          canvas#myCanvas3(width='810', height='220', style='z-index: 3; position:absolute; left:0px; top:0px;')
+                          canvas#myCanvas4(width='810', height='220', style='z-index: 4; position:absolute; left:0px; top:0px;')
+                        br
+                        #radio_seccion(style='display:none')
+                          input#radio_1(type='radio', name='seccion', value='seccion', checked='checked')
+                          label(for='radio_1') Seccion
+                          input#radio_2(type='radio', name='seccion', value='diente')
+                          label(for='radio_2') Diente
                   .panel.panel-default
                     #headingSix.panel-heading(role='tab')
                       h4.panel-title
